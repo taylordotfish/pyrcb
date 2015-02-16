@@ -29,8 +29,18 @@ class IrcBot:
             self._handle(line)
 
     def join(self, channel):
-        self.channels += channel
+        self.channels.append(channel.lower())
         self._writeline("JOIN {0}".format(channel))
+
+    def part(self, channel):
+        if channel.lower() in self.channels:
+            self._writeline("PART {0}".format(channel))
+            self.channels.remove(channel.lower())
+
+    def quit(self):
+        self._writeline("QUIT")
+        self.socket.shutdown(socket.SHUT_RDWR)
+        self.socket.close()
 
     def send(self, target, message):
         self._writeline("PRIVMSG {0} :{1}".format(target, message))
