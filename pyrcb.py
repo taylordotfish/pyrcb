@@ -70,7 +70,7 @@ class IrcBot:
         pass
 
     def _handle(self, message):
-        split = message.split(" ", 4)
+        split = message.split(" ", 3)
         if len(split) < 2:
             return
         if split[0].upper() == "PING":
