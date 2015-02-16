@@ -29,6 +29,12 @@ Sends the IRC server nickname and user information.
 `join(channel)`  
 Joins the specified channel.
 
+`part(channel)`  
+Leaves the specified channel.
+
+`quit()`  
+Closes connection to the IRC server.
+
 `send(target, message)`  
 Sends `target` the specified message. `target` can be a channel or user.
 
