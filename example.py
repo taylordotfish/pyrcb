@@ -1,3 +1,6 @@
+# This example is not copyrighted.
+# You are free to do anything with this file.
+
 from __future__ import print_function
 from pyrcb import IrcBot
 from datetime import datetime
