@@ -1,4 +1,4 @@
-# Copyright (C) 2015 nickolas360 (https://github.com/nickolas360)
+# Copyright (C) 2015 nickolas360 (https://github.com/nickolas360) and Nathan Krantz-Fire (https://github.com/zippynk)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
@@ -67,6 +67,12 @@ class IrcBot(object):
             if line is None:
                 return
             self._handle(line)
+            
+    def listenOnce(self):
+        line = self._readline()
+        if line is None:
+            return
+        self._handle(line)
 
     def on_join(self, nickname, channel):
         # To be overridden
