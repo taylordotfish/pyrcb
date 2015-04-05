@@ -1,9 +1,17 @@
 # pyrcb
-`pyrcb` is a very simple library for Python IRC bots. It isn't a full implementation of IRC; it provides just enough to write IRC bots. `pyrcb` is compatible with both Python 2 and 3.
+`pyrcb` is a simple library for Python IRC bots. It isn't a full implementation
+of IRC; instead, it provides just enough to write IRC bots. `pyrcb` is
+compatible with Python 2 and 3.
 
-To use it, import `pyrcb` and create a class that inherits `IrcBot`. Override one or more of the events. (You will most likely want to call `send()` from within the events.) Create an instance of your class and call `connect()`, `register()`, optionally `join()`, and `listen()`. See `example.py` for an example.
+To use it, import `pyrcb` and create a class that inherits `IrcBot`. Override
+one or more of the events. (You will most likely want to call `send()` from
+within the events.) Create an instance of your class and call `connect()`,
+`register()`, optionally `join()`, and `listen()` (or `listen_async()` -- see
+below). See `example.py` for an example.
 
-`IrcBot`'s constructor takes one optional argument, `debug_print`. Setting this value to `True` will cause all communication with the IRC server to be printed to standard output.
+`IrcBot`'s constructor takes one optional argument, `debug_print`. Setting this
+value to `True` will cause all communication with the IRC server to be printed
+to standard output.
 
 ### Events
 `on_join(self, nickname, channel)`  
@@ -16,8 +24,9 @@ Called when a user leaves a channel.
 Called when a user quits.
   
 `on_message(self, nickname, target, is_query)`  
-Called when a message is received.
-`target` is who/what the bot should reply to. If the message is in a channel, `target` is the channel. If the message is in a private query, `target` is the other user.
+Called when a message is received. `target` is who/what the bot should reply
+to. If the message is in a channel, `target` is the channel. If the message is
+in a private query, `target` is the other user.
 
 ### Methods
 `connect(hostname, port)`  
@@ -39,4 +48,10 @@ Closes connection to the IRC server.
 Sends `target` the specified message. `target` can be a channel or user.
 
 `listen()`  
-Listens for incoming messages, calling events when appropriate. This method is blocking and returns when connection to the IRC server is lost.
+Listens for incoming messages, calling events when appropriate. This method is
+blocking and returns when connection to the IRC server is lost.
+
+`listen_async(callback=None)`
+Listens for incoming messages on a separate thread, calling events when
+appropriate. This method is non-blocking and calls the optional method
+`callback` when connection to the IRC server is lost.
