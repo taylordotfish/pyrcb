@@ -40,3 +40,6 @@ Sends `target` the specified message. `target` can be a channel or user.
 
 `listen()`  
 Listens for incoming messages, calling events when appropriate. This method is blocking and returns when connection to the IRC server is lost.
+
+`listenOnce()`  
+Similar to `listen()`, except it only listens once and does not block other actions. It returns right after checking for a message once.
