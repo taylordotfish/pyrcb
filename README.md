@@ -53,5 +53,5 @@ blocking and returns when connection to the IRC server is lost.
 
 `listen_async(callback=None)`  
 Listens for incoming messages on a separate thread, calling events when
-appropriate. This method is non-blocking and calls the optional method
+appropriate. This method is non-blocking and calls the optional function
 `callback` when connection to the IRC server is lost.
