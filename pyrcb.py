@@ -101,6 +101,7 @@ class IrcBot(object):
 
     def on_other(self, message):
         # To be overridden
+        pass
 
     def _handle(self, message):
         split = message.split(" ", 3)
