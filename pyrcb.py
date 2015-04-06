@@ -67,7 +67,11 @@ class IrcBot(object):
 
     def listen(self):
         while True:
-            line = self._readline()
+            try:
+                line = self._readline()
+            except socket.error:
+                self._cleanup()
+                return
             if line is None:
                 return
             self._handle(line)
