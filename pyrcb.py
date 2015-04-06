@@ -62,6 +62,9 @@ class IrcBot(object):
     def send(self, target, message):
         self._writeline("PRIVMSG {0} :{1}".format(target, message))
 
+    def send_raw(message):
+        self._writeline(message)
+
     def listen(self):
         while True:
             line = self._readline()
@@ -88,9 +91,16 @@ class IrcBot(object):
         # To be overridden
         pass
 
+    def on_kick(self, nickname, channel, target, is_self):
+        # To be overridden
+        pass
+
     def on_message(self, message, nickname, target, is_query):
         # To be overridden
         pass
+
+    def on_other(self, message):
+        # To be overridden
 
     def _handle(self, message):
         split = message.split(" ", 3)
@@ -110,10 +120,15 @@ class IrcBot(object):
             self.on_part(nickname, split[2])
         elif command == "QUIT":
             self.on_quit(nickname)
+        elif command == "KICK":
+            is_self = split[3].lower() == self.nickname.lower()
+            self.on_message(nickname, split[2], split[3], is_self)
         elif command == "PRIVMSG":
             is_query = split[2].lower() == self.nickname.lower()
             target = nickname if is_query else split[2]
             self.on_message(split[3][1:], nickname, target, is_query)
+        else:
+            self.on_other(message)
 
     def _readline(self):
         while "\r\n" not in self._buffer:

@@ -22,11 +22,20 @@ Called when a user leaves a channel.
   
 `on_quit(self, nickname)`  
 Called when a user quits.
-  
+
+`on_kick(self, nickname, channel, target, is_self)`  
+Called when a user is kicked. `nickname` is the user who is doing the kicking,
+while `target` is the person who is being kicked. `is_self` specifies whether
+or not this bot is the one being kicked.
+
 `on_message(self, nickname, target, is_query)`  
 Called when a message is received. `target` is who/what the bot should reply
 to. If the message is in a channel, `target` is the channel. If the message is
 in a private query, `target` is the other user.
+
+`on_other(self, message)`  
+Called when a message not listed above is received. The message is passed in
+raw IRC format.
 
 ### Methods
 `connect(hostname, port)`  
@@ -46,6 +55,10 @@ Closes connection to the IRC server.
 
 `send(target, message)`  
 Sends `target` the specified message. `target` can be a channel or user.
+
+`send_raw(message)`  
+Sends a raw IRC message (command). Useful if you need to send an IRC message
+not listed above.
 
 `listen()`  
 Listens for incoming messages, calling events when appropriate. This method is
