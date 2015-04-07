@@ -29,14 +29,14 @@ class IrcBot(object):
         self.is_registered = False
         self.nickname = None
         self.channels = []
-        self.is_alive = False
+        self.alive = False
 
     def connect(self, hostname, port):
         self._cleanup()
         self.hostname = hostname
         self.port = port
         self.socket.connect((hostname, port))
-        self.is_alive = True
+        self.alive = True
 
     def register(self, nickname):
         self.nickname = nickname
@@ -91,7 +91,7 @@ class IrcBot(object):
         threading.Thread(target=target).start()
 
     def is_alive(self):
-        return self.is_alive
+        return self.alive
 
     def on_join(self, nickname, channel):
         # To be overridden
