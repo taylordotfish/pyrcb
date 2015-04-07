@@ -29,11 +29,14 @@ class IrcBot(object):
         self.is_registered = False
         self.nickname = None
         self.channels = []
+        self.is_alive = False
 
     def connect(self, hostname, port):
+        self._cleanup()
         self.hostname = hostname
         self.port = port
         self.socket.connect((hostname, port))
+        self.is_alive = True
 
     def register(self, nickname):
         self.nickname = nickname
@@ -57,10 +60,11 @@ class IrcBot(object):
     def quit(self):
         try:
             self._writeline("QUIT")
+            self.socket.shutdown(socket.SHUT_RDWR)
         except socket.error:
             pass
-        self.socket.shutdown(socket.SHUT_RDWR)
         self.socket.close()
+        self.is_alive = False
 
     def send(self, target, message):
         self._writeline("PRIVMSG {0} :{1}".format(target, message))
@@ -73,7 +77,7 @@ class IrcBot(object):
             try:
                 line = self._readline()
             except socket.error:
-                self._cleanup()
+                self.quit()
                 return
             if line is None:
                 return
@@ -85,6 +89,9 @@ class IrcBot(object):
             if callback:
                 callback()
         threading.Thread(target=target).start()
+
+    def is_alive(self):
+        return self.is_alive
 
     def on_join(self, nickname, channel):
         # To be overridden
