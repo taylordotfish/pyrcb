@@ -55,7 +55,10 @@ class IrcBot(object):
             self.channels.remove(channel.lower())
 
     def quit(self):
-        self._writeline("QUIT")
+        try:
+            self._writeline("QUIT")
+        except socket.error:
+            pass
         self.socket.shutdown(socket.SHUT_RDWR)
         self.socket.close()
 
