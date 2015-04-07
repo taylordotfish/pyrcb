@@ -167,4 +167,4 @@ class IrcBot(object):
         self._buffer = ""
         self.is_registered = False
         self.channels = []
- 
+
