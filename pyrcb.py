@@ -165,5 +165,5 @@ class IrcBot(object):
 
     def _cleanup(self):
         self._buffer = ""
-        self.registered = False
+        self.is_registered = False
         self.channels = []
