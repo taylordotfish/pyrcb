@@ -64,7 +64,7 @@ class IrcBot(object):
         except socket.error:
             pass
         self.socket.close()
-        self.is_alive = False
+        self.alive = False
 
     def send(self, target, message):
         self._writeline("PRIVMSG {0} :{1}".format(target, message))
