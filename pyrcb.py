@@ -118,7 +118,7 @@ class IrcBot(object):
         pass
 
     def _handle(self, message):
-        split = message.split(" ", 3)
+        split = message.split(" ", 4)
         if len(split) < 2:
             return
         if split[0].upper() == "PING":
@@ -141,7 +141,7 @@ class IrcBot(object):
         elif command == "PRIVMSG":
             is_query = split[2].lower() == self.nickname.lower()
             target = nickname if is_query else split[2]
-            self.on_message(split[3][1:], nickname, target, is_query)
+            self.on_message("".join(split[3:])[1:], nickname, target, is_query)
         else:
             self.on_other(message)
 
