@@ -137,7 +137,7 @@ class IrcBot(object):
             self.on_quit(nickname)
         elif command == "KICK":
             is_self = split[3].lower() == self.nickname.lower()
-            self.on_message(nickname, split[2], split[3], is_self)
+            self.on_kick(nickname, split[2], split[3], is_self)
         elif command == "PRIVMSG":
             is_query = split[2].lower() == self.nickname.lower()
             target = nickname if is_query else split[2]
