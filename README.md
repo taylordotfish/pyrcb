@@ -68,3 +68,6 @@ blocking and returns when connection to the IRC server is lost.
 Listens for incoming messages on a separate thread, calling events when
 appropriate. This method is non-blocking and calls the optional function
 `callback` when connection to the IRC server is lost.
+
+`is_alive()`  
+Returns whether or not the IRC bot is connected to the IRC server.
