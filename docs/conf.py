@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'pyrcb'
-copyright = '(C) 2015 taylor.fish'
+copyright = ' 2015 taylor.fish'
 author = 'taylor.fish'
 
 # The version info for the project you're documenting, acts as replacement for
