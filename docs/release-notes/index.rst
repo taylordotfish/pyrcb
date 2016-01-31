@@ -1,4 +1,4 @@
-.. Copyright (C) 2015 taylor.fish (https://github.com/taylordotfish)
+.. Copyright (C) 2015-2016 taylor.fish <contact@taylor.fish>
 
 .. This file is part of pyrcb-docs, documentation for pyrcb.
 

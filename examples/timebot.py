@@ -1,4 +1,4 @@
-# Written in 2015 by taylor.fish (https://github.com/taylordotfish)
+# Written in 2015-2016 by taylor.fish <contact@taylor.fish>
 #
 # To the extent possible under law, the author(s) have
 # dedicated all copyright and related and neighboring
