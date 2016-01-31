@@ -1,4 +1,4 @@
-.. Copyright (C) 2015-2016 taylor.fish <contact@taylor.fish>
+.. Copyright (C) 2016 taylor.fish <contact@taylor.fish>
 
 .. This file is part of pyrcb-docs, documentation for pyrcb.
 
@@ -17,12 +17,18 @@
 
 .. currentmodule:: pyrcb
 
-Release notes
-=============
+Changelog
+=========
 
-.. toctree::
-   :maxdepth: 2
+.. _changelog-1.8.0:
 
-   1.8/index
-   1.7/index
-   1.6/index
+1.8.0
+-----
+
+* Added :meth:`IRCBot.register_event`, which allows event handlers to be
+  registered for custom IRC commands.
+* Added configurable attributes for message delaying. See :ref:`delay-options`.
+* Fixed an issue with managing nicklists.
+* Improved socket error handling.
+* When using :meth:`~IRCBot.listen_async`, the callback will now be called
+  before any calls to :meth:`~IRCBot.wait` return.

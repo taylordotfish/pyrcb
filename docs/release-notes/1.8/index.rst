@@ -1,4 +1,4 @@
-.. Copyright (C) 2015-2016 taylor.fish <contact@taylor.fish>
+.. Copyright (C) 2016 taylor.fish <contact@taylor.fish>
 
 .. This file is part of pyrcb-docs, documentation for pyrcb.
 
@@ -17,12 +17,10 @@
 
 .. currentmodule:: pyrcb
 
-Release notes
-=============
+Version 1.8
+===========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   1.8/index
-   1.7/index
-   1.6/index
+   changelog
