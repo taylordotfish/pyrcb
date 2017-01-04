@@ -1,4 +1,4 @@
-.. Copyright (C) 2016 taylor.fish <contact@taylor.fish>
+.. Copyright (C) 2016-2017 taylor.fish <contact@taylor.fish>
 
 .. This file is part of pyrcb-docs, documentation for pyrcb.
 
@@ -24,6 +24,14 @@
 
 Changelog
 =========
+
+.. _changelog-1.14.3:
+
+1.14.3
+------
+
+* Fixed a syntax error in Python 2.
+* Fixed possible Unicode decoding errors.
 
 .. _changelog-1.14.2:
 
