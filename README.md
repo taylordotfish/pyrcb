@@ -25,15 +25,15 @@ support requires at least Python 2.7.9 or Python 3.2.
 Documentation
 -------------
 
-Documentation for pyrcb is available at <https://pyrcb.readthedocs.io/>. If
+Documentation for pyrcb is available at <https://taylor.fish/old/pyrcb>. If
 you're new to pyrcb, start with [this guide] and take a look at the
 [examples](examples/).
 
 The current version of pyrcb is **1.14.5**, which was released on 2017-03-21.
 See the [changelog] for more information.
 
-[this guide]: https://pyrcb.readthedocs.io/guide.html
-[changelog]: https://pyrcb.readthedocs.io/release-notes/1.14/changelog.html
+[this guide]: https://taylor.fish/old/pyrcb/guide.html
+[changelog]: https://taylor.fish/old/pyrcb/release-notes/1.14/changelog.html
 
 Tests
 -----
