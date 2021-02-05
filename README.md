@@ -4,7 +4,7 @@ pyrcb
 Version 1.14.5
 
 *NOTE: Development has moved to [pyrcb2]. pyrcb is no longer under active
-development, except for bug fixes.*
+development, except for minor bug fixes.*
 
 [pyrcb2]: https://github.com/taylordotfish/pyrcb2
 
