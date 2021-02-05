@@ -62,3 +62,7 @@ a.reference.external code.docutils.literal {
 a.reference.external code.docutils.literal:hover {
     background-color: #eeeeee;
 }
+
+dl > dd, dl > dd:last-child {
+    margin-bottom: 10px;
+}
